@@ -1,0 +1,74 @@
+[
+ {
+  "id": "step-01",
+  "name": "Install all Windows updates",
+  "category": "Windows",
+  "description": "Check again until none are left."
+ },
+ {
+  "id": "step-02",
+  "name": "Fix any driver problems",
+  "category": "Windows",
+  "description": "Look for warnings in Device Manager."
+ },
+ {
+  "id": "step-04",
+  "name": "Clean up Start menu and taskbar",
+  "category": "Windows",
+  "description": "Remove what you do not use."
+ },
+ {
+  "id": "step-09",
+  "name": "Pair Bluetooth devices",
+  "category": "Network",
+  "description": ""
+ },
+ {
+  "id": "step-11",
+  "name": "Move software licenses from the old PC",
+  "category": "Accounts and licenses",
+  "description": "Some licenses must be removed from the old PC first."
+ },
+ {
+  "id": "step-16",
+  "name": "Restore your password manager data",
+  "category": "Accounts and licenses",
+  "description": ""
+ },
+ {
+  "id": "step-17",
+  "name": "Sign in to Microsoft Office",
+  "category": "Accounts and licenses",
+  "description": ""
+ },
+ {
+  "id": "step-20",
+  "name": "Set up your email accounts",
+  "category": "Accounts and licenses",
+  "description": ""
+ },
+ {
+  "id": "step-22",
+  "name": "Install your browser extensions",
+  "category": "Browser",
+  "description": ""
+ },
+ {
+  "id": "step-24",
+  "name": "Restore browser favorites",
+  "category": "Browser",
+  "description": ""
+ },
+ {
+  "id": "step-28",
+  "name": "Copy user folders from backup",
+  "category": "Restore from backup",
+  "description": "Documents, Pictures, Music, Downloads and desktop icons."
+ },
+ {
+  "id": "step-33",
+  "name": "Install printer drivers",
+  "category": "Hardware",
+  "description": ""
+ }
+]

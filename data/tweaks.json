@@ -1,0 +1,458 @@
+[
+ {
+  "id": "show-file-extensions",
+  "name": "Show file extensions",
+  "category": "File Explorer",
+  "description": "Shows endings like .exe and .pdf on file names.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "HideFileExt",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "show-hidden-files",
+  "name": "Show hidden files",
+  "category": "File Explorer",
+  "description": "Shows files and folders marked as hidden.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "Hidden",
+  "set": 1,
+  "default": 2,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "show-empty-drives",
+  "name": "Show empty drives",
+  "category": "File Explorer",
+  "description": "Keeps drives with nothing in them visible.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "HideDrivesWithNoMedia",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "full-path-title",
+  "name": "Show full path in title bar",
+  "category": "File Explorer",
+  "description": "Shows the whole folder path at the top of the window.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\CabinetState",
+  "value": "FullPath",
+  "set": 1,
+  "default": 0,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "hide-search-box",
+  "name": "Hide taskbar Search box",
+  "category": "Taskbar",
+  "description": "Removes the Search box from the taskbar. Search still works from Start.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+  "value": "SearchboxTaskbarMode",
+  "set": 0,
+  "default": 2,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "hide-task-view",
+  "name": "Hide Task View button",
+  "category": "Taskbar",
+  "description": "Removes the Task View button from the taskbar.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "ShowTaskViewButton",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "hide-cortana",
+  "name": "Hide Cortana button",
+  "category": "Taskbar",
+  "description": "Removes the Cortana button from the taskbar.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "ShowCortanaButton",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10"
+  ],
+  "risky": false
+ },
+ {
+  "id": "sleep-never",
+  "name": "Never sleep",
+  "category": "System",
+  "description": "The PC stays on when plugged in.",
+  "type": "power",
+  "subgroup": "SUB_SLEEP",
+  "setting": "STANDBYIDLE",
+  "set": 0,
+  "default": 1800,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "hybrid-sleep-off",
+  "name": "Turn off hybrid sleep",
+  "category": "System",
+  "description": "Uses plain sleep and shutdown only.",
+  "type": "power",
+  "subgroup": "SUB_SLEEP",
+  "setting": "HYBRIDSLEEP",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "disk-never",
+  "name": "Never turn off hard drives",
+  "category": "System",
+  "description": "Drives keep spinning while the PC is on.",
+  "type": "power",
+  "subgroup": "SUB_DISK",
+  "setting": "DISKIDLE",
+  "set": 0,
+  "default": 1200,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "monitor-30",
+  "name": "Turn off monitor after 30 minutes",
+  "category": "System",
+  "description": "Monitor sleeps after 30 minutes without use.",
+  "type": "power",
+  "subgroup": "SUB_VIDEO",
+  "setting": "VIDEOIDLE",
+  "set": 1800,
+  "default": 600,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "fast-startup-off",
+  "name": "Turn off Fast Startup",
+  "category": "System",
+  "description": "Makes shutdown a full shutdown. Boot may take slightly longer.",
+  "type": "registry",
+  "path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+  "value": "HiberbootEnabled",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "pc-name",
+  "name": "Name this PC",
+  "category": "System",
+  "description": "Takes effect after a restart.",
+  "type": "pcname",
+  "set": "",
+  "default": "",
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false
+ },
+ {
+  "id": "uac-no-prompt",
+  "name": "Turn off admin prompts (UAC)",
+  "category": "System",
+  "description": "Programs get administrator rights without asking you first.",
+  "type": "registry",
+  "path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+  "value": "ConsentPromptBehaviorAdmin",
+  "set": 0,
+  "default": 5,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": true
+ },
+ {
+  "id": "open-this-pc",
+  "name": "Open File Explorer to This PC",
+  "category": "File Explorer",
+  "description": "File Explorer starts at This PC instead of Quick Access.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "LaunchTo",
+  "set": 1,
+  "default": 2,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "hide-recent-files",
+  "name": "Hide recent files in Quick Access",
+  "category": "File Explorer",
+  "description": "Quick Access does not list files you opened recently.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+  "value": "ShowRecent",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "hide-frequent-folders",
+  "name": "Hide frequent folders in Quick Access",
+  "category": "File Explorer",
+  "description": "Quick Access does not list folders you use often.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+  "value": "ShowFrequent",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "dark-taskbar",
+  "name": "Dark taskbar and Start menu",
+  "category": "Taskbar",
+  "description": "Uses the dark colors for the taskbar and Start menu.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+  "value": "SystemUsesLightTheme",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "dark-apps",
+  "name": "Dark app windows",
+  "category": "Taskbar",
+  "description": "Apps that support it use dark colors.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+  "value": "AppsUseLightTheme",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "transparency-off",
+  "name": "Turn off transparency",
+  "category": "Taskbar",
+  "description": "The taskbar and Start menu are solid colors.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+  "value": "EnableTransparency",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "small-taskbar",
+  "name": "Small taskbar buttons",
+  "category": "Taskbar",
+  "description": "Makes the taskbar thinner.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "TaskbarSmallIcons",
+  "set": 1,
+  "default": 0,
+  "os": [
+   "10"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "taskbar-combine",
+  "name": "Do not combine taskbar buttons",
+  "category": "Taskbar",
+  "description": "Each open window gets its own labeled button.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "TaskbarGlomLevel",
+  "set": 2,
+  "default": 0,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "hide-news",
+  "name": "Hide News and Interests",
+  "category": "Taskbar",
+  "description": "Removes the weather and news button from the taskbar.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
+  "value": "ShellFeedsTaskbarViewMode",
+  "set": 2,
+  "default": 0,
+  "os": [
+   "10"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "clock-seconds",
+  "name": "Show seconds on the clock",
+  "category": "Taskbar",
+  "description": "The taskbar clock shows seconds.",
+  "type": "registry",
+  "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+  "value": "ShowSecondsInSystemClock",
+  "set": 1,
+  "default": 0,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "long-paths",
+  "name": "Allow long file paths",
+  "category": "System",
+  "description": "Lets programs use paths longer than 260 characters.",
+  "type": "registry",
+  "path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
+  "value": "LongPathsEnabled",
+  "set": 1,
+  "default": 0,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "game-dvr-off",
+  "name": "Turn off Game DVR",
+  "category": "System",
+  "description": "Stops Windows from recording games in the background.",
+  "type": "registry",
+  "path": "HKCU:\\System\\GameConfigStore",
+  "value": "GameDVR_Enabled",
+  "set": 0,
+  "default": 1,
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "mouse-accel-off",
+  "name": "Turn off mouse acceleration",
+  "category": "System",
+  "description": "Pointer speed does not depend on how fast you move the mouse.",
+  "type": "registry",
+  "path": "HKCU:\\Control Panel\\Mouse",
+  "value": "MouseSpeed",
+  "set": "0",
+  "default": "1",
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ },
+ {
+  "id": "sticky-keys-off",
+  "name": "Turn off the Sticky Keys shortcut",
+  "category": "System",
+  "description": "Pressing Shift five times does not open the Sticky Keys prompt.",
+  "type": "registry",
+  "path": "HKCU:\\Control Panel\\Accessibility\\StickyKeys",
+  "value": "Flags",
+  "set": "506",
+  "default": "510",
+  "os": [
+   "10",
+   "11"
+  ],
+  "risky": false,
+  "captureOnly": true
+ }
+]

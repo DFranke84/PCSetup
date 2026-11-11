@@ -1,0 +1,457 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PCSetup" Width="940" Height="660" MinWidth="760" MinHeight="480"
+        WindowStartupLocation="CenterScreen" Background="#F4F5F7" FontFamily="Segoe UI" FontSize="13">
+  <DockPanel Background="#F4F5F7">
+    <DockPanel.Resources>
+      <SolidColorBrush x:Key="Ink" Color="#1F2933"/>
+      <SolidColorBrush x:Key="Muted" Color="#5F6B7A"/>
+      <SolidColorBrush x:Key="Line" Color="#D9DEE5"/>
+      <SolidColorBrush x:Key="Accent" Color="#0B5CAD"/>
+      <GridLength x:Key="ColA2">90</GridLength>
+      <GridLength x:Key="ColA3">105</GridLength>
+      <GridLength x:Key="ColA4">105</GridLength>
+      <GridLength x:Key="ColA5">105</GridLength>
+      <GridLength x:Key="ColU2">125</GridLength>
+      <GridLength x:Key="ColU3">125</GridLength>
+      <GridLength x:Key="ColU4">60</GridLength>
+      <GridLength x:Key="ColU5">100</GridLength>
+      <Style x:Key="ColumnEdge" TargetType="GridSplitter">
+        <Setter Property="Width" Value="7"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="ResizeBehavior" Value="PreviousAndCurrent"/>
+        <Setter Property="Margin" Value="-7,0,0,0"/>
+        <Setter Property="Cursor" Value="SizeWE"/>
+        <Setter Property="ToolTip" Value="Drag to resize this column"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="GridSplitter">
+              <Border Background="Transparent"><Rectangle Width="1" Fill="#B4BCC8" HorizontalAlignment="Center"/></Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style TargetType="Button">
+        <Setter Property="Padding" Value="14,6"/>
+        <Setter Property="Margin" Value="8,0,0,0"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Line}"/>
+      </Style>
+      <Style x:Key="Primary" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="{StaticResource Accent}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
+      </Style>
+      <Style x:Key="Chip" TargetType="RadioButton">
+        <Setter Property="Margin" Value="0,0,6,0"/>
+        <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="RadioButton">
+              <Border x:Name="Box" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="14" Padding="12,5">
+                <ContentPresenter/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                  <Setter TargetName="Box" Property="Background" Value="{StaticResource Accent}"/>
+                  <Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource Accent}"/>
+                  <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                  <Setter TargetName="Box" Property="BorderBrush" Value="#1F2933"/>
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="SectionButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="2,2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Cursor" Value="Hand"/>
+      </Style>
+      <Style x:Key="OnlyHeader" TargetType="FrameworkElement">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding IsHeader}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="OnlyRow" TargetType="FrameworkElement">
+        <Setter Property="Visibility" Value="Visible"/>
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding IsHeader}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="ActionText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Muted}"/>
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding Action}" Value="Will install">
+            <Setter Property="Foreground" Value="{StaticResource Accent}"/><Setter Property="FontWeight" Value="SemiBold"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Action}" Value="Will update">
+            <Setter Property="Foreground" Value="#8A5A00"/><Setter Property="FontWeight" Value="SemiBold"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Action}" Value="Failed">
+            <Setter Property="Foreground" Value="#A32A16"/><Setter Property="FontWeight" Value="SemiBold"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Action}" Value="Installed">
+            <Setter Property="Foreground" Value="#1E7B34"/><Setter Property="FontWeight" Value="SemiBold"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Action}" Value="Updated">
+            <Setter Property="Foreground" Value="#1E7B34"/><Setter Property="FontWeight" Value="SemiBold"/>
+          </DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="WhenSelectable" TargetType="CheckBox">
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding CanSelect}" Value="False"><Setter Property="Visibility" Value="Hidden"/></DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="WithButtons" TargetType="StackPanel">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding HasButtons}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="WithoutButtons" TargetType="TextBlock">
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding HasButtons}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="RowLink" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource Accent}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Style.Triggers>
+          <Trigger Property="Content" Value=""><Setter Property="Visibility" Value="Collapsed"/></Trigger>
+        </Style.Triggers>
+      </Style>
+      <DataTemplate x:Key="AppItem">
+        <Grid>
+          <Border Style="{StaticResource OnlyHeader}" Background="#E8ECF1" Padding="8,3" Margin="0,6,0,2" CornerRadius="3">
+            <DockPanel>
+              <CheckBox DockPanel.Dock="Left" VerticalAlignment="Center" Margin="2,0,8,0" IsChecked="{Binding IsSelected, Mode=TwoWay}" AutomationProperties.Name="Select all in this section" ToolTip="Select all in this section" Style="{StaticResource WhenSelectable}"/>
+              <Button Style="{StaticResource SectionButton}" IsEnabled="{Binding CanToggle}" AutomationProperties.Name="{Binding HeaderText}">
+                <TextBlock FontWeight="Bold" Foreground="{StaticResource Ink}" Text="{Binding HeaderText}"/>
+              </Button>
+            </DockPanel>
+          </Border>
+          <Border Style="{StaticResource OnlyRow}" BorderBrush="#E8ECF1" BorderThickness="0,0,0,1" Background="White" Padding="8,5">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="{DynamicResource ColA2}"/>
+                <ColumnDefinition Width="{DynamicResource ColA3}"/>
+                <ColumnDefinition Width="{DynamicResource ColA4}"/>
+                <ColumnDefinition Width="{DynamicResource ColA5}"/>
+                <ColumnDefinition Width="54"/>
+              </Grid.ColumnDefinitions>
+              <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsSelected, Mode=TwoWay}" AutomationProperties.Name="{Binding Name}" Style="{StaticResource WhenSelectable}"/>
+              <TextBlock Grid.Column="1" TextTrimming="CharacterEllipsis" Margin="0,0,10,0" ToolTip="{Binding Description}">
+                <Run Text="{Binding Name, Mode=OneWay}" FontWeight="SemiBold" Foreground="{StaticResource Ink}"/>
+                <Run Text="{Binding Description, Mode=OneWay}" Foreground="{StaticResource Muted}"/>
+              </TextBlock>
+              <TextBlock Grid.Column="2" Text="{Binding Group}" Foreground="{StaticResource Muted}" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="3" Text="{Binding Installed}" Foreground="{StaticResource Ink}" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" ToolTip="{Binding Installed}"/>
+              <TextBlock Grid.Column="4" Text="{Binding Latest}" Foreground="{StaticResource Ink}" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" ToolTip="{Binding LatestTip}" Style="{StaticResource WithoutButtons}"/>
+              <StackPanel Grid.Column="4" Orientation="Horizontal" Style="{StaticResource WithButtons}">
+                <Button Tag="1" Content="{Binding Btn1Text}" Style="{StaticResource RowLink}" AutomationProperties.Name="{Binding Btn1Text}"/>
+                <Button Tag="2" Content="{Binding Btn2Text}" Style="{StaticResource RowLink}" ToolTip="{Binding BtnTip}" AutomationProperties.Name="{Binding Btn2Text}"/>
+              </StackPanel>
+              <TextBlock Grid.Column="5" Text="{Binding Action}" ToolTip="{Binding RunNote}" TextTrimming="CharacterEllipsis">
+                <TextBlock.Style>
+                  <Style TargetType="TextBlock" BasedOn="{StaticResource ActionText}">
+                    <Style.Triggers>
+                      <DataTrigger Binding="{Binding Action}" Value="See Updates tab"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+                    </Style.Triggers>
+                  </Style>
+                </TextBlock.Style>
+              </TextBlock>
+              <Button Grid.Column="5" Tag="3" Content="See Updates tab" HorizontalAlignment="Left" ToolTip="Show this app on the Updates tab" AutomationProperties.Name="See Updates tab">
+                <Button.Style>
+                  <Style TargetType="Button" BasedOn="{StaticResource RowLink}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                      <DataTrigger Binding="{Binding Action}" Value="See Updates tab"><Setter Property="Visibility" Value="Visible"/></DataTrigger>
+                    </Style.Triggers>
+                  </Style>
+                </Button.Style>
+              </Button>
+              <Button Grid.Column="6" Tag="4" Content="{Binding RemoveText}" Style="{StaticResource RowLink}" Margin="0" HorizontalAlignment="Right" ToolTip="{Binding RemoveTip}" AutomationProperties.Name="{Binding RemoveTip}"/>
+            </Grid>
+          </Border>
+        </Grid>
+      </DataTemplate>
+      <DataTemplate x:Key="UpdateItem">
+        <Border BorderBrush="#E8ECF1" BorderThickness="0,0,0,1" Padding="8,5">
+          <Border.Style>
+            <Style TargetType="Border">
+              <Setter Property="Background" Value="White"/>
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding Highlight}" Value="True"><Setter Property="Background" Value="#FFF4D6"/></DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </Border.Style>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="28"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="{DynamicResource ColU2}"/>
+              <ColumnDefinition Width="{DynamicResource ColU3}"/>
+              <ColumnDefinition Width="{DynamicResource ColU4}"/>
+              <ColumnDefinition Width="{DynamicResource ColU5}"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsSelected, Mode=TwoWay}" AutomationProperties.Name="{Binding Name}" Style="{StaticResource WhenSelectable}"/>
+            <TextBlock Grid.Column="1" Text="{Binding Name}" FontWeight="SemiBold" Foreground="{StaticResource Ink}" TextTrimming="CharacterEllipsis" Margin="0,0,10,0" ToolTip="{Binding Description}"/>
+            <TextBlock Grid.Column="2" Text="{Binding Installed}" Foreground="{StaticResource Ink}" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" ToolTip="{Binding Installed}"/>
+            <TextBlock Grid.Column="3" Text="{Binding Latest}" Foreground="{StaticResource Ink}" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" ToolTip="{Binding Latest}"/>
+            <Button Grid.Column="4" Tag="1" Content="{Binding Btn1Text}" Style="{StaticResource RowLink}" HorizontalAlignment="Left" ToolTip="Lock keeps this app at its current version." AutomationProperties.Name="{Binding Btn1Text}"/>
+            <TextBlock Grid.Column="5" Text="{Binding Action}" ToolTip="{Binding RunNote}" TextTrimming="CharacterEllipsis" Style="{StaticResource ActionText}"/>
+          </Grid>
+        </Border>
+      </DataTemplate>
+      <DataTemplate x:Key="SettingRow">
+        <Border Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="4" Margin="0,0,0,6" Padding="10,8">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="30"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="170"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Column="0" VerticalAlignment="Center" IsChecked="{Binding IsSelected, Mode=TwoWay}" AutomationProperties.Name="{Binding Name}"/>
+            <StackPanel Grid.Column="1" Margin="4,0,12,0">
+              <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Foreground="{StaticResource Ink}"/>
+              <TextBlock Text="{Binding Description}" Foreground="{StaticResource Muted}" TextWrapping="Wrap"/>
+              <Button Tag="1" Content="{Binding Btn1Text}" Style="{StaticResource RowLink}" HorizontalAlignment="Left" AutomationProperties.Name="{Binding Btn1Text}"/>
+              <TextBlock Text="Lowers security. Tick this yourself if you want it." Foreground="#A32A16" FontWeight="SemiBold" Margin="0,2,0,0">
+                <TextBlock.Style>
+                  <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                      <DataTrigger Binding="{Binding Risky}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger>
+                    </Style.Triggers>
+                  </Style>
+                </TextBlock.Style>
+              </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+              <TextBlock Text="{Binding Status}" Foreground="{StaticResource Muted}" TextWrapping="Wrap" TextAlignment="Right"/>
+              <Button Tag="4" Content="{Binding RemoveText}" Style="{StaticResource RowLink}" Margin="0" HorizontalAlignment="Right" ToolTip="{Binding RemoveTip}" AutomationProperties.Name="{Binding RemoveTip}"/>
+            </StackPanel>
+          </Grid>
+        </Border>
+      </DataTemplate>
+      <GroupStyle x:Key="Groups">
+        <GroupStyle.HeaderTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14" Foreground="{StaticResource Ink}" Margin="0,8,0,6"/>
+          </DataTemplate>
+        </GroupStyle.HeaderTemplate>
+      </GroupStyle>
+    </DockPanel.Resources>
+    <Border x:Name="RunBanner" DockPanel.Dock="Top" Visibility="Collapsed" Background="#E6F0FA" BorderBrush="#A9C8E8" BorderThickness="0,0,0,1" Padding="16,8">
+      <DockPanel>
+        <Button x:Name="StopRun" DockPanel.Dock="Right" Content="Stop after this app"/>
+        <StackPanel VerticalAlignment="Center">
+          <TextBlock x:Name="RunText" Foreground="{StaticResource Ink}" FontWeight="SemiBold" TextWrapping="Wrap"/>
+          <ProgressBar x:Name="RunProgress" Height="6" Margin="0,4,12,0"/>
+        </StackPanel>
+      </DockPanel>
+    </Border>
+    <Border DockPanel.Dock="Top" Padding="16,12,16,8">
+      <DockPanel>
+        <TextBlock x:Name="SystemInfo" DockPanel.Dock="Right" Foreground="{StaticResource Muted}" VerticalAlignment="Bottom"/>
+        <TextBlock Text="PCSetup" FontSize="22" FontWeight="SemiBold" Foreground="{StaticResource Ink}"/>
+      </DockPanel>
+    </Border>
+    <TabControl x:Name="Tabs" Margin="16,0,16,16" Background="#F4F5F7">
+      <TabItem Header="Install">
+        <DockPanel Margin="10">
+          <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+            <Button x:Name="SaveProfileApps" DockPanel.Dock="Right" Content="Save my profile" ToolTip="Save the ticked apps as your profile"/>
+            <Button x:Name="LoadProfileApps" DockPanel.Dock="Right" Content="Load my profile" ToolTip="Tick the apps saved in your profile"/>
+            <Button x:Name="AddAppOpen" DockPanel.Dock="Right" Content="Add app"/>
+            <Button x:Name="CheckAgain" DockPanel.Dock="Right" Content="Check again"/>
+            <TextBlock Text="Search" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{StaticResource Muted}"/>
+            <TextBox x:Name="AppSearch" Padding="4" VerticalContentAlignment="Center" AutomationProperties.Name="Search apps"/>
+          </DockPanel>
+          <Border x:Name="AddAppPanel" DockPanel.Dock="Top" Visibility="Collapsed" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="4" Padding="10,8" Margin="0,0,0,8">
+            <StackPanel>
+              <DockPanel>
+                <Button x:Name="AddAppClose" DockPanel.Dock="Right" Content="Close"/>
+                <Button x:Name="AddAppSearch" DockPanel.Dock="Right" Content="Search winget" Style="{StaticResource Primary}"/>
+                <ComboBox x:Name="AddAppCategory" DockPanel.Dock="Right" Width="110" Margin="8,0,0,0" VerticalContentAlignment="Center" AutomationProperties.Name="Category for the new app"/>
+                <TextBlock Text="App name" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{StaticResource Muted}"/>
+                <TextBox x:Name="AddAppName" Padding="4" VerticalContentAlignment="Center" AutomationProperties.Name="Name of the app to add"/>
+              </DockPanel>
+              <DockPanel Margin="0,8,0,0">
+                <Button x:Name="AddAppAddWinget" DockPanel.Dock="Right" Content="Add selected" VerticalAlignment="Top"/>
+                <ListBox x:Name="AddAppResults" Height="96" DisplayMemberPath="Display" FontFamily="Consolas" FontSize="12" AutomationProperties.Name="Search results"/>
+              </DockPanel>
+              <DockPanel Margin="0,8,0,0">
+                <Button x:Name="AddAppAddManual" DockPanel.Dock="Right" Content="Add as manual app"/>
+                <TextBlock Text="Not in winget? Download link (optional)" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{StaticResource Muted}"/>
+                <TextBox x:Name="AddAppLink" Padding="4" VerticalContentAlignment="Center" AutomationProperties.Name="Download link"/>
+              </DockPanel>
+              <TextBlock x:Name="AddAppInfo" Foreground="{StaticResource Muted}" Margin="0,6,0,0" TextWrapping="Wrap" Text="Type a name and press Search winget."/>
+            </StackPanel>
+          </Border>
+          <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8" LastChildFill="False">
+            <CheckBox x:Name="ShowRemoved" DockPanel.Dock="Right" VerticalAlignment="Center" Content="Show removed (0)" Foreground="{StaticResource Muted}"/>
+            <RadioButton x:Name="FilterAll" Style="{StaticResource Chip}" GroupName="AppFilter" IsChecked="True"/>
+            <RadioButton x:Name="FilterInstalled" Style="{StaticResource Chip}" GroupName="AppFilter"/>
+            <RadioButton x:Name="FilterUpdate" Style="{StaticResource Chip}" GroupName="AppFilter"/>
+            <RadioButton x:Name="FilterMissing" Style="{StaticResource Chip}" GroupName="AppFilter"/>
+            <RadioButton x:Name="FilterUnlisted" Style="{StaticResource Chip}" GroupName="AppFilter"/>
+          </DockPanel>
+          <Border DockPanel.Dock="Bottom" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="4" Padding="12,8" Margin="0,10,0,0">
+            <DockPanel>
+              <Button x:Name="InstallSelected" DockPanel.Dock="Right" Content="Install selected" Style="{StaticResource Primary}"/>
+              <Button x:Name="ShowCommands" DockPanel.Dock="Right" Content="Show exact commands"/>
+              <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="PlanSummary" FontWeight="SemiBold" Foreground="{StaticResource Ink}" TextWrapping="Wrap"/>
+                <TextBlock x:Name="CheckInfo" Foreground="{StaticResource Muted}"/>
+              </StackPanel>
+            </DockPanel>
+          </Border>
+          <Border DockPanel.Dock="Top" Padding="8,0,26,4">
+            <Grid x:Name="AppHeader">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28"/>
+                <ColumnDefinition Width="*" MinWidth="120"/>
+                <ColumnDefinition Width="90" MinWidth="40"/>
+                <ColumnDefinition Width="105" MinWidth="40"/>
+                <ColumnDefinition Width="105" MinWidth="40"/>
+                <ColumnDefinition Width="105" MinWidth="40"/>
+                <ColumnDefinition Width="54"/>
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="1" Text="App" Foreground="{StaticResource Muted}" FontWeight="SemiBold"/>
+              <TextBlock Grid.Column="2" Text="Category" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="3" Text="Your version" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="4" Text="Latest / options" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="5" Text="What happens" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <GridSplitter Grid.Column="2" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="3" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="4" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="5" Style="{StaticResource ColumnEdge}"/>
+            </Grid>
+          </Border>
+          <Grid>
+            <TextBlock x:Name="AppListEmpty" Text="No apps here." Foreground="{StaticResource Muted}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <ItemsControl x:Name="AppList" ItemTemplate="{StaticResource AppItem}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate><VirtualizingStackPanel/></ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                  <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" CanContentScroll="True">
+                    <ItemsPresenter/>
+                  </ScrollViewer>
+                </ControlTemplate>
+              </ItemsControl.Template>
+            </ItemsControl>
+          </Grid>
+        </DockPanel>
+      </TabItem>
+      <TabItem x:Name="UpdatesTab" Header="Updates">
+        <DockPanel Margin="10">
+          <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8" LastChildFill="False">
+            <Button x:Name="ClearUpdates" DockPanel.Dock="Right" Content="Clear"/>
+            <Button x:Name="SelectAllUpdates" DockPanel.Dock="Right" Content="Select all"/>
+            <TextBlock DockPanel.Dock="Left" Foreground="{StaticResource Muted}" VerticalAlignment="Center" Text="Nothing updates unless you tick it here. A locked app stays at its version."/>
+          </DockPanel>
+          <Border DockPanel.Dock="Bottom" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="4" Padding="12,8" Margin="0,10,0,0">
+            <DockPanel>
+              <Button x:Name="RunUpdates" DockPanel.Dock="Right" Content="Update selected" Style="{StaticResource Primary}"/>
+              <TextBlock x:Name="UpdateSummary" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="{StaticResource Ink}" TextWrapping="Wrap"/>
+            </DockPanel>
+          </Border>
+          <Border DockPanel.Dock="Top" Padding="8,0,26,4">
+            <Grid x:Name="UpdateHeader">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28"/>
+                <ColumnDefinition Width="*" MinWidth="120"/>
+                <ColumnDefinition Width="125" MinWidth="40"/>
+                <ColumnDefinition Width="125" MinWidth="40"/>
+                <ColumnDefinition Width="60" MinWidth="40"/>
+                <ColumnDefinition Width="100" MinWidth="40"/>
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="1" Text="App" Foreground="{StaticResource Muted}" FontWeight="SemiBold"/>
+              <TextBlock Grid.Column="2" Text="Your version" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="3" Text="Latest" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <TextBlock Grid.Column="5" Text="What happens" Foreground="{StaticResource Muted}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              <GridSplitter Grid.Column="2" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="3" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="4" Style="{StaticResource ColumnEdge}"/>
+              <GridSplitter Grid.Column="5" Style="{StaticResource ColumnEdge}"/>
+            </Grid>
+          </Border>
+          <Grid>
+            <TextBlock x:Name="UpdateListEmpty" Text="No updates found." Foreground="{StaticResource Muted}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <ItemsControl x:Name="UpdateList" ItemTemplate="{StaticResource UpdateItem}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate><VirtualizingStackPanel/></ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                  <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" CanContentScroll="True">
+                    <ItemsPresenter/>
+                  </ScrollViewer>
+                </ControlTemplate>
+              </ItemsControl.Template>
+            </ItemsControl>
+          </Grid>
+        </DockPanel>
+      </TabItem>
+      <TabItem Header="Settings">
+        <DockPanel Margin="10">
+          <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0" LastChildFill="False">
+            <Button x:Name="ApplyTweaks" DockPanel.Dock="Right" Content="Apply" Style="{StaticResource Primary}"/>
+            <Button x:Name="PreviewTweaks" DockPanel.Dock="Right" Content="Preview changes"/>
+            <Button x:Name="UndoTweaks" DockPanel.Dock="Right" Content="Undo"/>
+            <Button x:Name="CaptureTweaks" DockPanel.Dock="Right" Content="Capture from this PC"/>
+            <Button x:Name="SaveProfileTweaks" DockPanel.Dock="Right" Content="Save my profile" ToolTip="Save the ticked settings as your profile"/>
+            <Button x:Name="LoadProfileTweaks" DockPanel.Dock="Right" Content="Load my profile"/>
+            <TextBlock x:Name="TweakCount" DockPanel.Dock="Left" Foreground="{StaticResource Muted}" VerticalAlignment="Center"/>
+          </DockPanel>
+          <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="TweakList" ItemTemplate="{StaticResource SettingRow}">
+              <ItemsControl.GroupStyle><StaticResource ResourceKey="Groups"/></ItemsControl.GroupStyle>
+            </ItemsControl>
+          </ScrollViewer>
+        </DockPanel>
+      </TabItem>
+      <TabItem x:Name="ChecklistTab" Header="Checklist">
+        <DockPanel Margin="10">
+          <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0" LastChildFill="False">
+            <Button x:Name="ChecklistClear" DockPanel.Dock="Right" Content="Untick all"/>
+            <CheckBox x:Name="ShowRemovedSteps" DockPanel.Dock="Right" VerticalAlignment="Center" Content="Show removed (0)" Foreground="{StaticResource Muted}"/>
+            <TextBlock x:Name="ChecklistCount" DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource Ink}" VerticalAlignment="Center"/>
+          </DockPanel>
+          <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <Button x:Name="StepAdd" DockPanel.Dock="Right" Content="Add step"/>
+            <ComboBox x:Name="StepSection" DockPanel.Dock="Right" Width="170" Margin="8,0,0,0" VerticalContentAlignment="Center" AutomationProperties.Name="Section for the new step"/>
+            <TextBlock Text="New step" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{StaticResource Muted}"/>
+            <TextBox x:Name="StepText" Padding="4" VerticalContentAlignment="Center" AutomationProperties.Name="New checklist step"/>
+          </DockPanel>
+          <TextBlock DockPanel.Dock="Top" Foreground="{StaticResource Muted}" Margin="0,0,0,8" TextWrapping="Wrap" Text="Steps to do yourself after installing. Your ticks are saved. Passwords are never stored here."/>
+          <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="CheckList" ItemTemplate="{StaticResource SettingRow}">
+              <ItemsControl.GroupStyle><StaticResource ResourceKey="Groups"/></ItemsControl.GroupStyle>
+            </ItemsControl>
+          </ScrollViewer>
+        </DockPanel>
+      </TabItem>
+      <TabItem x:Name="LogTab" Header="Log">
+        <TextBox x:Name="LogBox" Margin="10" IsReadOnly="True" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AutomationProperties.Name="Log"/>
+      </TabItem>
+    </TabControl>
+  </DockPanel>
+</Window>

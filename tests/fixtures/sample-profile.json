@@ -1,0 +1,54 @@
+{
+ "apps": [
+  "7zip.7zip",
+  "Mozilla.Firefox",
+  "VideoLAN.VLC",
+  "Notepad++.Notepad++",
+  "manual.npcap",
+  "manual.sample-tool"
+ ],
+ "tweaks": [
+  "show-file-extensions",
+  "show-hidden-files",
+  "show-empty-drives",
+  "full-path-title",
+  "hide-search-box",
+  "hide-task-view",
+  "hide-cortana",
+  "sleep-never",
+  "hybrid-sleep-off",
+  "disk-never",
+  "monitor-30",
+  "fast-startup-off",
+  "pc-name",
+  "uac-no-prompt"
+ ],
+ "values": {
+  "pc-name": "SAMPLE-PC"
+ },
+ "myApps": [
+  {
+   "id": "manual.sample-tool",
+   "name": "Sample Tool",
+   "category": "Utilities",
+   "description": "Made-up app for the tests.",
+   "method": "manual",
+   "link": "https://example.com/sample-tool",
+   "detect": "Sample Tool For PCSetup Tests"
+  }
+ ],
+ "mySteps": [
+  {
+   "id": "step-09",
+   "name": "Pair Bluetooth headphones",
+   "category": "Network",
+   "description": ""
+  },
+  {
+   "id": "my-01",
+   "name": "Restore game saves",
+   "category": "Restore from backup",
+   "description": "Made-up step for the tests."
+  }
+ ]
+}

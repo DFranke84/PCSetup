@@ -1,0 +1,719 @@
+[
+ {
+  "id": "Google.Chrome",
+  "name": "Google Chrome",
+  "category": "Internet",
+  "description": "Google's web browser."
+ },
+ {
+  "id": "Mozilla.Firefox",
+  "name": "Mozilla Firefox",
+  "category": "Internet",
+  "description": "Mozilla's web browser.",
+  "detect": "Mozilla Firefox (x64 en-US)"
+ },
+ {
+  "id": "qBittorrent.qBittorrent",
+  "name": "qBittorrent",
+  "category": "Internet",
+  "description": "Free BitTorrent download program."
+ },
+ {
+  "id": "SABnzbdTeam.SABnzbd",
+  "name": "SABnzbd",
+  "category": "Internet",
+  "description": "Downloads files from Usenet newsgroups."
+ },
+ {
+  "id": "Zoom.Zoom.EXE",
+  "name": "Zoom",
+  "category": "Internet",
+  "description": "Video meetings and calls."
+ },
+ {
+  "id": "Cisco.Webex",
+  "name": "Webex",
+  "category": "Internet",
+  "description": "Cisco's meetings and team messaging app."
+ },
+ {
+  "id": "GoTo.GoToMeeting",
+  "name": "GoToMeeting",
+  "category": "Internet",
+  "description": "Online meetings software."
+ },
+ {
+  "id": "OpenVPNTechnologies.OpenVPN",
+  "name": "OpenVPN",
+  "category": "Internet",
+  "description": "Open-source VPN software."
+ },
+ {
+  "id": "OpenVPNTechnologies.OpenVPNConnect",
+  "name": "OpenVPN Connect",
+  "category": "Internet",
+  "description": "OpenVPN's official VPN client app."
+ },
+ {
+  "id": "WinSCP.WinSCP",
+  "name": "WinSCP",
+  "category": "Internet",
+  "description": "Transfers files to servers using SFTP or FTP.",
+  "detect": "WinSCP 6.5.4"
+ },
+ {
+  "id": "Microsoft.OneDrive",
+  "name": "OneDrive",
+  "category": "Internet",
+  "description": "Microsoft's cloud file storage and sync.",
+  "detect": "Microsoft OneDrive",
+  "detectPath": "C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe"
+ },
+ {
+  "id": "IDrive.IDrive",
+  "name": "IDrive",
+  "category": "Internet",
+  "description": "Online backup service.",
+  "detect": "IDrive version 7.0.0.63"
+ },
+ {
+  "id": "ACLAP.DownloadHelperCoApp",
+  "name": "DownloadHelper CoApp",
+  "category": "Internet",
+  "description": "Helper that lets the Video DownloadHelper browser add-on save videos."
+ },
+ {
+  "id": "VideoLAN.VLC",
+  "name": "VLC media player",
+  "category": "Media",
+  "description": "Free media player that handles almost any video or audio format."
+ },
+ {
+  "id": "CodecGuide.K-LiteCodecPack.Full",
+  "name": "K-Lite Codec Pack Full",
+  "category": "Media",
+  "description": "Video and audio codecs, plus the Media Player Classic player."
+ },
+ {
+  "id": "HandBrake.HandBrake",
+  "name": "HandBrake",
+  "category": "Media",
+  "description": "Free tool for converting and compressing video."
+ },
+ {
+  "id": "Avidemux.Avidemux",
+  "name": "Avidemux",
+  "category": "Media",
+  "description": "Free tool for simple video cutting and conversion.",
+  "detect": "Avidemux VC++ 64bits"
+ },
+ {
+  "id": "OpenAudible.OpenAudible",
+  "name": "OpenAudible",
+  "category": "Media",
+  "description": "Downloads and manages your Audible audiobooks."
+ },
+ {
+  "id": "calibre.calibre",
+  "name": "calibre",
+  "category": "Media",
+  "description": "Organizes, converts and reads e-books."
+ },
+ {
+  "id": "Amazon.Kindle",
+  "name": "Amazon Kindle",
+  "category": "Media",
+  "description": "Reads Kindle e-books on the PC."
+ },
+ {
+  "id": "Microsoft.BingWallpaper",
+  "name": "Bing Wallpaper",
+  "category": "Media",
+  "description": "Sets the daily Bing photo as your wallpaper."
+ },
+ {
+  "id": "7zip.7zip",
+  "name": "7-Zip",
+  "category": "Utilities",
+  "description": "Free tool for creating and opening compressed files."
+ },
+ {
+  "id": "Notepad++.Notepad++",
+  "name": "Notepad++",
+  "category": "Utilities",
+  "description": "Free text and code editor."
+ },
+ {
+  "id": "Adobe.Acrobat.Reader.32-bit",
+  "name": "Adobe Acrobat Reader",
+  "category": "Utilities",
+  "description": "Views, prints and comments on PDF files."
+ },
+ {
+  "id": "DominikReichl.KeePass",
+  "name": "KeePass",
+  "category": "Utilities",
+  "description": "Free offline password manager."
+ },
+ {
+  "id": "Malwarebytes.Malwarebytes",
+  "name": "Malwarebytes",
+  "category": "Utilities",
+  "description": "Finds and removes malware."
+ },
+ {
+  "id": "AOMEI.Backupper.Standard",
+  "name": "AOMEI Backupper",
+  "category": "Utilities",
+  "description": "Backs up and restores disks, partitions and files."
+ },
+ {
+  "id": "Piriform.Recuva",
+  "name": "Recuva",
+  "category": "Utilities",
+  "description": "Recovers deleted files."
+ },
+ {
+  "id": "Wondershare.Recoverit",
+  "name": "Wondershare Recoverit",
+  "category": "Utilities",
+  "description": "Recovers deleted or lost files.",
+  "detectPath": "C:\\Program Files\\Wondershare\\Recoverit"
+ },
+ {
+  "id": "JAMSoftware.TreeSize.Free",
+  "name": "TreeSize Free",
+  "category": "Utilities",
+  "description": "Shows what is taking up disk space."
+ },
+ {
+  "id": "ScooterSoftware.BeyondCompare.4",
+  "name": "Beyond Compare 4",
+  "category": "Utilities",
+  "description": "Compares and merges files and folders."
+ },
+ {
+  "id": "Araxis.Merge",
+  "name": "Araxis Merge",
+  "category": "Utilities",
+  "description": "Compares and merges files and folders."
+ },
+ {
+  "id": "Rainmeter.Rainmeter",
+  "name": "Rainmeter",
+  "category": "Utilities",
+  "description": "Puts customizable widgets on the Windows desktop."
+ },
+ {
+  "id": "Microsoft.Sysinternals.Suite",
+  "name": "Sysinternals Suite",
+  "category": "Utilities",
+  "description": "Microsoft's collection of advanced Windows diagnostic tools."
+ },
+ {
+  "id": "Chocolatey.Chocolatey",
+  "name": "Chocolatey",
+  "category": "Utilities",
+  "description": "Installs and updates Windows software from the command line.",
+  "detectPath": "%ProgramData%\\chocolatey\\choco.exe"
+ },
+ {
+  "id": "Chocolatey.ChocolateyGUI",
+  "name": "Chocolatey GUI",
+  "category": "Utilities",
+  "description": "Graphical window for the Chocolatey package manager."
+ },
+ {
+  "id": "Rufus.Rufus",
+  "name": "Rufus",
+  "category": "Utilities",
+  "description": "Creates bootable USB drives.",
+  "detectPath": "%ProgramData%\\chocolatey\\lib\\rufus"
+ },
+ {
+  "id": "Win32diskimager.win32diskimager",
+  "name": "Win32 Disk Imager",
+  "category": "Utilities",
+  "description": "Writes disk images to USB drives and SD cards."
+ },
+ {
+  "id": "SDAssociation.SDMemoryCardFormatter",
+  "name": "SD Card Formatter",
+  "category": "Utilities",
+  "description": "Formats SD memory cards correctly."
+ },
+ {
+  "id": "Anthropic.Claude",
+  "name": "Claude",
+  "category": "AI",
+  "description": "Anthropic's AI assistant desktop app."
+ },
+ {
+  "id": "Anthropic.ClaudeCode",
+  "name": "Claude Code",
+  "category": "AI",
+  "description": "Anthropic's AI coding assistant for the command line."
+ },
+ {
+  "id": "ElementLabs.LMStudio",
+  "name": "LM Studio",
+  "category": "AI",
+  "description": "Downloads and runs AI language models on your own PC."
+ },
+ {
+  "id": "Comfy.ComfyUI-Desktop",
+  "name": "Comfy Desktop",
+  "category": "AI",
+  "description": "Node-based app for generating images with AI models."
+ },
+ {
+  "id": "Anysphere.Cursor",
+  "name": "Cursor",
+  "category": "AI",
+  "description": "Code editor built around AI assistance."
+ },
+ {
+  "id": "CognitionAI.DevinDesktop",
+  "name": "Devin",
+  "category": "AI",
+  "description": "AI software engineering assistant.",
+  "detect": "Devin (User)"
+ },
+ {
+  "id": "SST.opencode",
+  "name": "opencode",
+  "category": "AI",
+  "description": "Open-source AI coding assistant for the command line.",
+  "detectPath": "%APPDATA%\\npm\\node_modules\\opencode-ai"
+ },
+ {
+  "id": "Microsoft.VisualStudio.2022.Community",
+  "name": "Visual Studio Community 2022",
+  "category": "Developer",
+  "description": "Microsoft's full programming environment, 2022 edition."
+ },
+ {
+  "id": "Microsoft.VisualStudio.Community",
+  "name": "Visual Studio Community 2026",
+  "category": "Developer",
+  "description": "Microsoft's full programming environment, 2026 edition."
+ },
+ {
+  "id": "Microsoft.VisualStudio.2019.BuildTools",
+  "name": "Visual Studio Build Tools 2019",
+  "category": "Developer",
+  "description": "Command-line tools for compiling Visual Studio projects, 2019 edition."
+ },
+ {
+  "id": "Microsoft.VisualStudio.BuildTools",
+  "name": "Visual Studio Build Tools 2026",
+  "category": "Developer",
+  "description": "Command-line tools for compiling Visual Studio projects, 2026 edition."
+ },
+ {
+  "id": "Microsoft.VisualStudioCode",
+  "name": "Visual Studio Code",
+  "category": "Developer",
+  "description": "Free, lightweight code editor from Microsoft."
+ },
+ {
+  "id": "Microsoft.SQLServerManagementStudio",
+  "name": "SQL Server Management Studio",
+  "category": "Developer",
+  "description": "Program for managing and querying SQL Server databases."
+ },
+ {
+  "id": "Git.Git",
+  "name": "Git",
+  "category": "Developer",
+  "description": "Version control tool for tracking code changes."
+ },
+ {
+  "id": "GitHub.cli",
+  "name": "GitHub CLI",
+  "category": "Developer",
+  "description": "Works with GitHub from the command line."
+ },
+ {
+  "id": "Docker.DockerDesktop",
+  "name": "Docker Desktop",
+  "category": "Developer",
+  "description": "Runs software in isolated containers on the PC."
+ },
+ {
+  "id": "Python.Python.3.9",
+  "name": "Python 3.9",
+  "category": "Developer",
+  "description": "Programming language and its runtime."
+ },
+ {
+  "id": "Python.Python.3.12",
+  "name": "Python 3.12",
+  "category": "Developer",
+  "description": "Programming language and its runtime."
+ },
+ {
+  "id": "Python.Python.3.14",
+  "name": "Python 3.14",
+  "category": "Developer",
+  "description": "Programming language and its runtime."
+ },
+ {
+  "id": "Anaconda.Miniconda3",
+  "name": "Miniconda3",
+  "category": "Developer",
+  "description": "Minimal Python distribution with the conda package manager."
+ },
+ {
+  "id": "OpenJS.NodeJS.LTS",
+  "name": "Node.js LTS",
+  "category": "Developer",
+  "description": "Runs JavaScript programs outside a browser."
+ },
+ {
+  "id": "Oracle.JavaRuntimeEnvironment",
+  "name": "Java 8 Runtime",
+  "category": "Developer",
+  "description": "Runs programs written in Java."
+ },
+ {
+  "id": "ShiningLight.OpenSSL.Dev",
+  "name": "OpenSSL",
+  "category": "Developer",
+  "description": "Encryption tools and libraries."
+ },
+ {
+  "id": "Microsoft.NuGet",
+  "name": "NuGet CLI",
+  "category": "Developer",
+  "description": "Command-line tool for .NET code packages."
+ },
+ {
+  "id": "JRSoftware.InnoSetup",
+  "name": "Inno Setup",
+  "category": "Developer",
+  "description": "Builds installers for Windows programs."
+ },
+ {
+  "id": "Microsoft.WebDeploy",
+  "name": "Microsoft Web Deploy",
+  "category": "Developer",
+  "description": "Publishes websites to IIS web servers."
+ },
+ {
+  "id": "Microsoft.WSL",
+  "name": "Windows Subsystem for Linux",
+  "category": "Developer",
+  "description": "Runs Linux inside Windows."
+ },
+ {
+  "id": "Canonical.Ubuntu",
+  "name": "Ubuntu",
+  "category": "Developer",
+  "description": "Ubuntu Linux running inside Windows."
+ },
+ {
+  "id": "Valve.Steam",
+  "name": "Steam",
+  "category": "Games",
+  "description": "Valve's game store and launcher."
+ },
+ {
+  "id": "Blizzard.BattleNet",
+  "name": "Battle.net",
+  "category": "Games",
+  "description": "Blizzard's launcher for buying, installing and starting its games."
+ },
+ {
+  "id": "AntiMicroX.antimicrox",
+  "name": "AntiMicroX",
+  "category": "Games",
+  "description": "Maps game controller buttons to keyboard and mouse."
+ },
+ {
+  "id": "Elgato.StreamDeck",
+  "name": "Elgato Stream Deck",
+  "category": "Hardware",
+  "description": "Sets up the buttons on an Elgato Stream Deck."
+ },
+ {
+  "id": "Elgato.WaveLink",
+  "name": "Elgato Wave Link",
+  "category": "Hardware",
+  "description": "Audio mixer for Elgato microphones and streaming."
+ },
+ {
+  "id": "Logitech.GHUB",
+  "name": "Logitech G HUB",
+  "category": "Hardware",
+  "description": "Configures Logitech gaming mice, keyboards and headsets."
+ },
+ {
+  "id": "Jabra.Direct",
+  "name": "Jabra Direct",
+  "category": "Hardware",
+  "description": "Updates and configures Jabra headsets."
+ },
+ {
+  "id": "Brother.iPrintScan",
+  "name": "Brother iPrint&Scan",
+  "category": "Hardware",
+  "description": "Prints and scans with Brother printers."
+ },
+ {
+  "id": "Synology.Assistant",
+  "name": "Synology Assistant",
+  "category": "Hardware",
+  "description": "Finds and sets up Synology network storage devices."
+ },
+ {
+  "id": "Garmin.Express",
+  "name": "Garmin Express",
+  "category": "Hardware",
+  "description": "Updates and syncs Garmin devices."
+ },
+ {
+  "id": "REALiX.HWiNFO",
+  "name": "HWiNFO",
+  "category": "Hardware",
+  "description": "Detailed hardware information and sensor monitoring."
+ },
+ {
+  "id": "CPUID.CPU-Z",
+  "name": "CPU-Z",
+  "category": "Hardware",
+  "description": "Shows detailed processor and memory information."
+ },
+ {
+  "id": "CPUID.HWMonitor",
+  "name": "HWMonitor",
+  "category": "Hardware",
+  "description": "Monitors PC temperatures, voltages and fan speeds."
+ },
+ {
+  "id": "Guru3D.Afterburner",
+  "name": "MSI Afterburner",
+  "category": "Hardware",
+  "description": "Graphics card overclocking and monitoring.",
+  "detect": "MSI Afterburner 4.6.6"
+ },
+ {
+  "id": "Guru3D.RTSS",
+  "name": "RivaTuner Statistics Server",
+  "category": "Hardware",
+  "description": "On-screen frame rate display and limiter, used with Afterburner."
+ },
+ {
+  "id": "RARLab.WinRAR",
+  "name": "WinRAR",
+  "category": "Utilities",
+  "description": "Creates and opens compressed files."
+ },
+ {
+  "id": "Piriform.Speccy",
+  "name": "Speccy",
+  "category": "Hardware",
+  "description": "Shows detailed PC hardware information."
+ },
+ {
+  "id": "WinDirStat.WinDirStat",
+  "name": "WinDirStat",
+  "category": "Utilities",
+  "description": "Shows what is taking up disk space."
+ },
+ {
+  "id": "PowerSoftware.PowerISO",
+  "name": "PowerISO",
+  "category": "Utilities",
+  "description": "Creates, opens and burns disc images."
+ },
+ {
+  "id": "PeterBClements.QuickPar",
+  "name": "QuickPar",
+  "category": "Utilities",
+  "description": "Repairs downloaded files using PAR recovery data."
+ },
+ {
+  "id": "CrystalDewWorld.CrystalDiskMark",
+  "name": "CrystalDiskMark",
+  "category": "Hardware",
+  "description": "Measures drive speed."
+ },
+ {
+  "id": "PuTTY.PuTTY",
+  "name": "PuTTY",
+  "category": "Internet",
+  "description": "Connects to remote computers over SSH."
+ },
+ {
+  "id": "TeamViewer.TeamViewer",
+  "name": "TeamViewer",
+  "category": "Internet",
+  "description": "Remote control and support for other PCs."
+ },
+ {
+  "id": "Mega.MEGASync",
+  "name": "MEGAsync",
+  "category": "Internet",
+  "description": "Syncs files with MEGA cloud storage."
+ },
+ {
+  "id": "SmartBear.SoapUI",
+  "name": "SoapUI",
+  "category": "Developer",
+  "description": "Tests web service APIs."
+ },
+ {
+  "id": "Postman.Postman",
+  "name": "Postman",
+  "category": "Developer",
+  "description": "Builds and tests web APIs."
+ },
+ {
+  "id": "JetBrains.IntelliJIDEA.Community",
+  "name": "IntelliJ IDEA Community",
+  "category": "Developer",
+  "description": "Java and Kotlin programming environment."
+ },
+ {
+  "id": "Oracle.MySQLWorkbench",
+  "name": "MySQL Workbench",
+  "category": "Developer",
+  "description": "Designs and manages MySQL databases."
+ },
+ {
+  "id": "RubyInstallerTeam.RubyWithDevKit.3.4",
+  "name": "Ruby 3.4",
+  "category": "Developer",
+  "description": "Ruby programming language with build tools."
+ },
+ {
+  "id": "PHP.PHP.8.5",
+  "name": "PHP 8.5",
+  "category": "Developer",
+  "description": "PHP programming language."
+ },
+ {
+  "id": "Oracle.VirtualBox",
+  "name": "Oracle VirtualBox",
+  "category": "Developer",
+  "description": "Runs other operating systems in virtual machines."
+ },
+ {
+  "id": "marha.VcXsrv",
+  "name": "VcXsrv",
+  "category": "Developer",
+  "description": "Shows Linux desktop windows on Windows, used with WSL."
+ },
+ {
+  "id": "EpicGames.EpicGamesLauncher",
+  "name": "Epic Games Launcher",
+  "category": "Games",
+  "description": "Epic's game store and launcher."
+ },
+ {
+  "id": "JTKsoftware.JoyToKey",
+  "name": "JoyToKey",
+  "category": "Games",
+  "description": "Maps controller buttons to keyboard and mouse."
+ },
+ {
+  "id": "Garmin.BaseCamp",
+  "name": "Garmin BaseCamp",
+  "category": "Hardware",
+  "description": "Plans routes and manages Garmin map data."
+ },
+ {
+  "id": "Silicondust.HDHomeRun",
+  "name": "HDHomeRun",
+  "category": "Hardware",
+  "description": "Watches live TV from an HDHomeRun tuner."
+ },
+ {
+  "id": "DBBrowserForSQLite.DBBrowserForSQLite",
+  "name": "DB Browser for SQLite",
+  "category": "Developer",
+  "description": "Opens and edits SQLite database files."
+ },
+ {
+  "id": "manual.nvidia-app",
+  "name": "NVIDIA App",
+  "category": "Hardware",
+  "description": "Updates NVIDIA drivers and adjusts graphics settings.",
+  "method": "manual",
+  "link": "https://www.nvidia.com/en-us/software/nvidia-app/",
+  "detect": "NVIDIA App",
+  "detectPath": "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\CEF\\NVIDIA App.exe"
+ },
+ {
+  "id": "manual.samsung-magician",
+  "name": "Samsung Magician",
+  "category": "Hardware",
+  "description": "Monitors, updates and tunes Samsung SSDs.",
+  "method": "manual",
+  "link": "https://semiconductor.samsung.com/consumer-storage/support/tools/",
+  "detect": "Samsung Magician"
+ },
+ {
+  "id": "manual.roboform",
+  "name": "RoboForm",
+  "category": "Utilities",
+  "description": "Password manager and form filler.",
+  "method": "manual",
+  "link": "https://www.roboform.com",
+  "detect": "RoboForm Desktop"
+ },
+ {
+  "id": "manual.ghostscript",
+  "name": "Ghostscript",
+  "category": "Utilities",
+  "description": "Processes PDF and PostScript files for other programs.",
+  "method": "manual",
+  "link": "https://ghostscript.com/releases/",
+  "detect": "GPL Ghostscript"
+ },
+ {
+  "id": "manual.microsoft-office-2021",
+  "name": "Microsoft Office 2021",
+  "category": "Utilities",
+  "description": "Word, Excel, Outlook, PowerPoint, Access and OneNote.",
+  "method": "manual",
+  "link": "https://www.microsoft.com/microsoft-365",
+  "detect": "Microsoft Office Professional Plus 2021",
+  "detectPath": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
+ },
+ {
+  "id": "manual.prime-video",
+  "name": "Prime Video",
+  "category": "Media",
+  "description": "Amazon's streaming video app.",
+  "method": "manual",
+  "link": "https://apps.microsoft.com/search?query=Prime%20Video",
+  "detect": "Prime Video"
+ },
+ {
+  "id": "manual.nvidia-control-panel",
+  "name": "NVIDIA Control Panel",
+  "category": "Hardware",
+  "description": "Advanced NVIDIA graphics settings.",
+  "method": "manual",
+  "link": "https://apps.microsoft.com/search?query=NVIDIA%20Control%20Panel",
+  "detect": "NVIDIA Control Panel"
+ },
+ {
+  "id": "Microsoft.WindowsTerminal",
+  "name": "Windows Terminal",
+  "category": "Utilities",
+  "description": "Modern Windows window for command-line tools."
+ },
+ {
+  "id": "manual.npcap",
+  "name": "Npcap",
+  "category": "Utilities",
+  "description": "Packet capture driver used by Wireshark, Nmap and similar network tools.",
+  "method": "manual",
+  "link": "https://npcap.com/#download",
+  "detect": "Npcap",
+  "detectPath": "%SystemRoot%\\System32\\Npcap"
+ }
+]
